@@ -1,6 +1,6 @@
 {
     "name": "solid-controlled-input",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "A controlled input for solid (porting over the same behavior as in react)",
     "type": "module",
     "files": [
@@ -24,8 +24,15 @@
     "keywords": [],
     "author": "Tronikelis",
     "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Tronikelis/solid-controlled-input"
+    },
     "peerDependencies": {
         "solid-js": ">=1 <=2"
+    },
+    "dependencies": {
+        "@solid-primitives/refs": "^1.0.5"
     },
     "devDependencies": {
         "eslint": "8.53.0",
@@ -34,8 +41,5 @@
         "tsup": "7.2.0",
         "tsup-preset-solid": "2.1.0",
         "typescript": "5.2.2"
-    },
-    "dependencies": {
-        "@solid-primitives/refs": "^1.0.5"
     }
 }
