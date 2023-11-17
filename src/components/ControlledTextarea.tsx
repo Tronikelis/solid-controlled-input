@@ -9,7 +9,7 @@ export default function ControlledTextarea(props: Props) {
     let ref: HTMLTextAreaElement | undefined;
 
     const updateInput = () => {
-        if (!local.value || !ref) return;
+        if (!ref) return;
         ref.value = (local.value || "").toString();
     };
 

@@ -21,13 +21,11 @@ export default function ControlledInput(props: Props) {
         switch (local.type) {
             case "checkbox":
             case "radio": {
-                if (local.checked === undefined) return;
                 ref.checked = local.checked ?? false;
                 break;
             }
 
             default: {
-                if (!local.value) return;
                 ref.value = (local.value || "").toString();
             }
         }

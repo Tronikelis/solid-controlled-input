@@ -1,6 +1,6 @@
 {
     "name": "solid-controlled-input",
-    "version": "2.0.0",
+    "version": "2.1.0",
     "description": "A controlled input for solid (porting over the same behavior as in react)",
     "type": "module",
     "files": [
