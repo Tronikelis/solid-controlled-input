@@ -19,14 +19,14 @@
 Well no, if you only have touched react, it actually heavily transforms events and inputs to get its behavior.
 
 For example:
-- React's `onChange` fires on every input, while vanilla js doesn't
-- Vanilla JS does not have "controlled" inputs, you need to make them manually
+
+-   React's `onChange` fires on every input, while vanilla js doesn't
+-   Vanilla JS does not have "controlled" inputs, you need to make them manually
 
 # How to use
 
 ```tsx
-import ControlledInput from "solid-controlled-input"
-
+import { ControlledInput, ControlledTextarea } from "solid-controlled-input";
 ```
 
-That's it, use this input like you would use the og `<input />`
+That's it, use this input like you would use the og `<input />` or `<textarea />`

@@ -3,7 +3,7 @@ import { defineConfig } from "tsup";
 
 const presetOptions: preset.PresetOptions = {
     entries: {
-        entry: "./src/index.tsx",
+        entry: "./src/index.ts",
     },
     drop_console: true,
     cjs: false,

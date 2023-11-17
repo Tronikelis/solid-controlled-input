@@ -4,23 +4,40 @@ import { ComponentProps, createEffect, on, splitProps } from "solid-js";
 type Props = ComponentProps<"input">;
 
 export default function ControlledInput(props: Props) {
-    const [local, others] = splitProps(props, ["value", "ref", "oninput", "onInput"]);
+    const [local, others] = splitProps(props, [
+        "value",
+        "ref",
+        "oninput",
+        "onInput",
+        "type",
+        "checked",
+    ]);
 
     let ref: HTMLInputElement | undefined;
 
     const updateInput = () => {
-        if (!ref || !local.value) return;
-        ref.value = (local.value || "").toString();
+        if (!ref) return;
+
+        switch (local.type) {
+            case "checkbox":
+            case "radio": {
+                if (local.checked === undefined) return;
+                ref.checked = local.checked ?? false;
+                break;
+            }
+
+            default: {
+                if (!local.value) return;
+                ref.value = (local.value || "").toString();
+            }
+        }
     };
 
     createEffect(
-        on(
-            () => local.value,
-            () => {
-                if (!ref) return;
-                updateInput();
-            }
-        )
+        on([() => local.value, () => local.checked], () => {
+            if (!ref) return;
+            updateInput();
+        })
     );
 
     const onInput = (
@@ -43,7 +60,9 @@ export default function ControlledInput(props: Props) {
         <input
             ref={mergeRefs(local.ref, el => (ref = el))}
             onInput={onInput}
+            type={local.type}
             value={local.value}
+            checked={local.checked}
             {...others}
         />
     );
