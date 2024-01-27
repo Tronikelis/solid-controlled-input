@@ -1,6 +1,6 @@
 {
     "name": "solid-controlled-input",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "description": "A controlled input for solid (porting over the same behavior as in react)",
     "type": "module",
     "files": [
@@ -18,7 +18,8 @@
     },
     "typesVersions": {},
     "scripts": {
-        "build": "tsup"
+        "build": "tsup",
+        "preinstall": "npx -y only-allow pnpm"
     },
     "keywords": [],
     "author": "Tronikelis",
@@ -31,14 +32,16 @@
         "solid-js": ">=1 <=2"
     },
     "dependencies": {
-        "@solid-primitives/refs": "^1.0.5"
+        "@solid-primitives/refs": "^1.0.6",
+        "@solid-primitives/event-listener": "^2.3.0"
     },
     "devDependencies": {
-        "eslint": "8.53.0",
-        "eslint-config-tronikelis-solid": "2.0.0",
-        "prettier": "3.1.0",
-        "tsup": "7.2.0",
-        "tsup-preset-solid": "2.1.0",
-        "typescript": "5.2.2"
+        "eslint": "8.56.0",
+        "eslint-config-tronikelis-solid": "10.0.0",
+        "prettier": "3.2.4",
+        "prettier-config-tronikelis": "3.0.0",
+        "tsup": "8.0.1",
+        "tsup-preset-solid": "2.2.0",
+        "typescript": "5.3.3"
     }
 }
