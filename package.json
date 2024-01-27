@@ -19,6 +19,7 @@
     "typesVersions": {},
     "scripts": {
         "build": "tsup",
+        "prepublishOnly": "pnpm build",
         "preinstall": "npx -y only-allow pnpm"
     },
     "keywords": [],
