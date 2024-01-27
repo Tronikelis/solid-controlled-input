@@ -1,11 +1,10 @@
-import { createEventListener } from "@solid-primitives/event-listener";
 import { mergeRefs } from "@solid-primitives/refs";
 import { ComponentProps, createEffect, on, splitProps } from "solid-js";
 
 type Props = ComponentProps<"textarea">;
 
 export default function ControlledTextarea(props: Props) {
-    const [local, others] = splitProps(props, ["ref"]);
+    const [local, others] = splitProps(props, ["ref", "onInput", "oninput"]);
 
     let ref: HTMLTextAreaElement | undefined;
 
@@ -24,13 +23,26 @@ export default function ControlledTextarea(props: Props) {
         )
     );
 
-    createEventListener(
-        () => ref,
-        "input",
-        () => {
-            void Promise.resolve().then(updateInput);
+    const onInput = (
+        e: InputEvent & {
+            target: HTMLTextAreaElement;
+            currentTarget: HTMLTextAreaElement;
         }
-    );
+    ) => {
+        void Promise.resolve().then(updateInput);
 
-    return <textarea ref={mergeRefs(local.ref, el => (ref = el))} {...others} />;
+        if (typeof local.onInput === "function") {
+            local.onInput(e);
+            return;
+        }
+
+        if (typeof local.oninput === "function") {
+            local.oninput(e);
+            return;
+        }
+    };
+
+    return (
+        <textarea ref={mergeRefs(local.ref, el => (ref = el))} onInput={onInput} {...others} />
+    );
 }

@@ -1,6 +1,6 @@
 {
     "name": "solid-controlled-input",
-    "version": "3.0.2",
+    "version": "4.0.0",
     "description": "A controlled input for solid (porting over the same behavior as in react)",
     "type": "module",
     "files": [
@@ -32,8 +32,7 @@
         "solid-js": ">=1 <=2"
     },
     "dependencies": {
-        "@solid-primitives/refs": "^1.0.6",
-        "@solid-primitives/event-listener": "^2.3.0"
+        "@solid-primitives/refs": "^1.0.6"
     },
     "devDependencies": {
         "eslint": "8.56.0",
