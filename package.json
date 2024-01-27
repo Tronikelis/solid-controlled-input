@@ -1,6 +1,6 @@
 {
     "name": "solid-controlled-input",
-    "version": "3.0.1",
+    "version": "3.0.2",
     "description": "A controlled input for solid (porting over the same behavior as in react)",
     "type": "module",
     "files": [
@@ -19,8 +19,7 @@
     "typesVersions": {},
     "scripts": {
         "build": "tsup",
-        "prepublishOnly": "pnpm build",
-        "preinstall": "npx -y only-allow pnpm"
+        "prepublishOnly": "pnpm build"
     },
     "keywords": [],
     "author": "Tronikelis",
