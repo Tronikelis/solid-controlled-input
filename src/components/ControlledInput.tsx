@@ -14,12 +14,14 @@ export default function ControlledInput(props: Props) {
         switch (others.type) {
             case "checkbox":
             case "radio": {
-                ref.checked = others.checked ?? false;
+                if (others.checked == null) return;
+                ref.checked = others.checked;
                 break;
             }
 
             default: {
-                ref.value = (others.value || "").toString();
+                if (others.value == null) return;
+                ref.value = String(others.value);
             }
         }
     };

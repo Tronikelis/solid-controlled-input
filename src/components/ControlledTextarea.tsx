@@ -10,7 +10,8 @@ export default function ControlledTextarea(props: Props) {
 
     const updateInput = () => {
         if (!ref) return;
-        ref.value = (others.value || "").toString();
+        if (others.value == null) return;
+        ref.value = String(others.value);
     };
 
     createEffect(
