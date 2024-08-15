@@ -27,10 +27,14 @@ export default function ControlledInput(props: Props) {
     };
 
     createEffect(
-        on([() => others.value, () => others.checked], () => {
-            if (!ref) return;
-            updateInput();
-        })
+        on(
+            [() => others.value, () => others.checked],
+            () => {
+                if (!ref) return;
+                updateInput();
+            },
+            { defer: true }
+        )
     );
 
     const onInput = (
